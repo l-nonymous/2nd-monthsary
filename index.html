@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulip, Teddy, and Chocolate Bouquet for Our 2nd Monthsary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffebf0;
+            overflow: hidden;
+        }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        
+        .bouquet-container {
+            width: 400px;
+            height: 550px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 15px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .message {
+    text-align: center;
+    font-size: 28px;
+    color: #3d2f3c;
+    text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.4); 
+    margin-bottom: 10px;
+    margin-top: 15px;
+    animation: floatText 3s ease-in-out infinite;
+}
+
+        
+        .bouquet {
+            width: 100%;
+            height: 85%;
+            background-image: url('tulips.png');
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            transition: transform .3s ease;
+            animation: floatImage 4s ease-in-out infinite;
+            position: relative;
+}
+.card {
+    position: absolute;
+    top: 40%;
+    right: 45%; 
+    transform: translateX(-50%) rotate(-10deg); 
+    width: 40px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card::before {
+    content: 'Open';
+    font-size: 12px;
+    color: #666;
+}
+
+
+        .teddy {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 140px;
+            background-image: url('teddy.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 2;
+            animation: bounceTeddy 2s ease-in-out infinite;
+        }
+
+        .chocolate {
+            position: absolute;
+            bottom: 30px;
+            left: calc(50% + 70px); 
+            width: 80px;
+            height: 80px;
+            background-image: url('choc.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 3;
+            animation: rotateChocolate 4s linear infinite;
+        }
+        .letter-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 4;
+    display: none;
+}
+
+.letter {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter .salutation {
+    font-weight: 700;
+    color: #ff4891;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.letter .content {
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+.letter .signature {
+    align-self: flex-end;
+    text-align: right;
+    margin-top: 8px;
+}
+
+.letter .signature p {
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #ff4891;
+}
+
+
+
+       
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes bounceTeddy {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        @keyframes rotateChocolate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .bouquet-container:hover {
+            transform: scale(1.02);
+        }
+
+        .bouquet-container:hover .teddy {
+            animation-play-state: paused;
+            transform: translateX(-50%) rotate(-10deg);
+        }
+
+        .bouquet-container:hover .chocolate {
+            animation-play-state: paused;
+            transform: scale(1.1);
+        }
+
+        .bouquet-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -50%;
+            left: -50%;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,.8) 50%, transparent 55%);
+            animation: sparkleEffect 4s infinite linear;
+            pointer-events: none;
+            opacity: .8;
+        }
+
+        @keyframes sparkleEffect {
+            from { transform: translateY(-100%) rotate(45deg); }
+            to { transform: translateY(100%) rotate(45deg); }
+        }
+
+        .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e6005c;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    animation: popHeart 1s ease-out;
+}
+
+@keyframes popHeart {
+    0% {
+        transform: rotate(45deg) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(45deg) scale(1) translateY(-100px);
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="bouquet-container">
+            <div class="message">Happy 2nd Monthsary, mahal ko!</div>
+            <div class="bouquet">
+                <div class="card"></div>
+            </div>
+            <div class="teddy"></div>
+            <div class="chocolate"></div>
+            <div class="letter-container">
+                <div class="letter">
+                    <p class="salutation">My nadnad,</p>
+                    <div class="content">
+                        <p>Hi baby, two months na pala tayo? wow hahaha. Happy 2nd monthsary, my love🤍🌷 I think halos nasabi ko naman na lahat sa letters ko before how much I love you and grateful I am na ikaw ang girlfriend ko. But, I want you to know na ever since naging tayo, I felt nothing but security and contentment. I never feel alone kase your love always reaches me, it feels so good to have someone like you. Thank you for everything, mahal. More months and chikas to come mahal🫣.Just know that, you're more than enough and ikaw lang pipiliin ko sa araw-araw. I love youuuu palagi, baby. MWAAAAA😘</p>
+                    </div>
+                    <div class="signature">
+                        <p>Love,</p>
+                        <p>your weyang</p>
+                    </div>
+                </div>
+            </div>
+            
+     
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const card = document.querySelector('.card');
+                    const letterContainer = document.querySelector('.letter-container');
+                    const audio = new Audio('mahika.mp3'); 
+                    audio.loop = true; 
+                    let isPlaying = false;
+            
+                    card.addEventListener('click', function() {
+                        letterContainer.style.display = 'block';
+                        if (!isPlaying) {
+                            audio.play(); 
+                            isPlaying = true;
+                        }
+                    });
+            
+                    document.addEventListener('click', function(event) {
+                        if (!event.target.closest('.letter-container, .card')) {
+                            letterContainer.style.display = 'none';
+                        }
+                    });
+            
+                    const muteButton = document.createElement('button');
+                    muteButton.textContent = 'Mute';
+                    muteButton.style.position = 'fixed';
+                    muteButton.style.bottom = '10px';
+                    muteButton.style.right = '10px';
+                    document.body.appendChild(muteButton);
+            
+                    muteButton.addEventListener('click', function() {
+                        if (audio.muted) {
+                            audio.muted = false;
+                            muteButton.textContent = 'Mute';
+                        } else {
+                            audio.muted = true;
+                            muteButton.textContent = 'Unmute';
+                        }
+                    });
+                });
+            </script>
+            
+    </body>
+    </html>
